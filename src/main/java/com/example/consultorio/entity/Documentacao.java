@@ -10,4 +10,15 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Entity
 public class Documentacao implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String descricao;
+    private String tipo;
+    @OneToOne
+    @JoinColumn(name = "Doutor Responsavel")
+    private Doutor doutor ;
+    @OneToOne
+    @JoinColumn(name = "Paciente")
+    private Paciente paciente;
 }
